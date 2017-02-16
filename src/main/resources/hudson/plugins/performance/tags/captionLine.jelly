@@ -5,9 +5,9 @@
   <tr>
     <th>${%URI}</th>
     <th>${%Samples}</th>
-    <th>${%Average} (ms)</th>
-    <th>${%Minimum} (ms)</th>
-    <th>${%Maximum} (ms)</th>
+    <th>${%Average} (ns)</th>
+    <th>${%Minimum} (ns)</th>
+    <th>${%Maximum} (ns)</th>
     <th>${%Errors} (%)</th>
  </tr>
  </j:when>
@@ -16,13 +16,13 @@
     <th>${%URI}</th>
     <th>${%Samples}</th>
     <th>${%Samples diff}</th>
-    <th>${%Average} (ms)</th>
-    <th>${%Average diff} (ms)</th>
-    <th>${%Median} (ms)</th>
-    <th>${%Median diff} (ms)</th>
-    <th>${%Line90} (ms)</th>
-    <th>${%Minimum} (ms)</th>
-    <th>${%Maximum} (ms)</th>
+    <th>${%Average} (ns)</th>
+    <th>${%Average diff} (ns)</th>
+    <th>${%Median} (ns)</th>
+    <th>${%Median diff} (ns)</th>
+    <th>${%Line90} (ns)</th>
+    <th>${%Minimum} (ns)</th>
+    <th>${%Maximum} (ns)</th>
     <th>${%Http Code}</th>
     <th>${%Previous Http Code}</th>
     <th>${%Errors} (%)</th>

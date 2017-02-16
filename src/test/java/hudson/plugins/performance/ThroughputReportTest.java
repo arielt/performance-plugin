@@ -10,6 +10,9 @@ import java.util.Date;
  */
 public class ThroughputReportTest {
 
+  // original resolution is milliseconds, adjusting for nanoseconds
+  private static final int RESOLUTION = 1000000;
+
   private PerformanceReport performanceReport = new PerformanceReport();
 
   private ThroughputReport throughputReport = new ThroughputReport(performanceReport);
@@ -58,7 +61,7 @@ public class ThroughputReportTest {
     performanceReport.getUriReportMap().put(uriReport1.getUri(), uriReport1);
     performanceReport.getUriReportMap().put(uriReport2.getUri(), uriReport2);
 
-    Assert.assertEquals(2.0 / 1100 * 1000, throughputReport.get());
+    Assert.assertEquals(2.0 / 1100 * 1000 * RESOLUTION, throughputReport.get());
   }
 
 }

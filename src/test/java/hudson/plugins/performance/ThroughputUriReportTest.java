@@ -10,6 +10,9 @@ import java.util.Date;
  */
 public class ThroughputUriReportTest {
 
+  // original resolution is milliseconds, adjusting for nanoseconds
+  private static final int RESOLUTION = 1000000;
+
   private PerformanceReport performanceReport = new PerformanceReport();
   private UriReport uriReport = new UriReport(performanceReport, "f", "x");
 
@@ -25,7 +28,7 @@ public class ThroughputUriReportTest {
     HttpSample httpSample1 = createHttpSample(new Date(), 1000);
     uriReport.addHttpSample(httpSample1);
 
-    Assert.assertEquals(1.0, throughputUriReport.get());
+    Assert.assertEquals(1.0 * RESOLUTION, throughputUriReport.get());
   }
 
   @Test
@@ -33,7 +36,7 @@ public class ThroughputUriReportTest {
     HttpSample httpSample1 = createHttpSample(new Date(), 10000);
     uriReport.addHttpSample(httpSample1);
 
-    Assert.assertEquals(0.1, throughputUriReport.get());
+    Assert.assertEquals(0.1 * RESOLUTION, throughputUriReport.get());
   }
 
   @Test
@@ -66,7 +69,7 @@ public class ThroughputUriReportTest {
     uriReport.addHttpSample(httpSample1);
     uriReport.addHttpSample(httpSample2);
 
-    Assert.assertEquals(2.0, throughputUriReport.get());
+    Assert.assertEquals(2.0 * RESOLUTION, throughputUriReport.get());
   }
 
   @Test
@@ -90,7 +93,7 @@ public class ThroughputUriReportTest {
     uriReport.addHttpSample(httpSample2);
     uriReport.addHttpSample(httpSample3);
 
-    Assert.assertEquals(0.5, throughputUriReport.get());
+    Assert.assertEquals(0.5 * RESOLUTION, throughputUriReport.get());
   }
 
   @Test // JENKINS-27373
@@ -98,7 +101,7 @@ public class ThroughputUriReportTest {
     HttpSample httpSample1 = createHttpSample(new Date(), 1);
 
     uriReport.addHttpSample(httpSample1);
-    Assert.assertEquals(1000.0, throughputUriReport.get());
+    Assert.assertEquals(1000.0 * RESOLUTION, throughputUriReport.get());
   }
 
   private HttpSample createHttpSample(Date date, long duration){

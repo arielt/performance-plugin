@@ -5,7 +5,9 @@ package hudson.plugins.performance;
  */
 public class ThroughputUriReport {
 
-  private static final int MILLISECONDS_IN_SECOND = 1000;
+  // 1000 if report times are in milliseconds
+  // 1000 000 000 if report times are in nanoseconds
+  private static final int RESOLUTION = 1000000000;
 
   private final UriReport uriReport;
 
@@ -22,9 +24,10 @@ public class ThroughputUriReport {
     long start = uriReport.getStart().getTime();
     final long duration = end - start;
 
+    // duration is average latency of one request
     if (duration == 0) {
       return uriReport.size(); // more than zero requests should always take at least some time. If that didn't get logged, this is the most suitable alternative.
     }
-    return (uriReport.size() / ((double) duration / MILLISECONDS_IN_SECOND));
+    return (((double)uriReport.size() * RESOLUTION) / ((double)duration));
   }
 }

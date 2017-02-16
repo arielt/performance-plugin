@@ -29,24 +29,24 @@
           <j:when test="${it.getPerformanceReport().ifSummarizerParserUsed(it.getPerformanceReport().getReportFileName())}">
             <th>${%Samples}</th>
             <th>${%Time}</th>
-            <th>${% Avg Response Time} (ms)</th>
+            <th>${% Avg Response Time} (ns)</th>
             <j:forEach var="c" items="${it.httpSampleList}">
                 <tr>
                 <td>${c.summarizerSamples}</td>
                 <td class="center" data="${c.date.getTime()}">${c.date}</td>
-                <td>${c.duration} ms.</td>
+                <td>${c.duration} ns.</td>
                 </tr>
             </j:forEach>
           </j:when>
           <j:otherwise>
             <th>${%Http Code}</th>
             <th>${%Time}</th>
-            <th>${%Duration} (ms)</th>
+            <th>${%Duration} (ns)</th>
             <j:forEach var="c" items="${it.httpSampleList}">
                 <tr class="${h.ifThenElse(c.failed,'red','')}">
                 <td>${c.httpCode}</td>
                 <td class="center" data="${c.date.getTime()}">${c.date}</td>
-                <td>${c.duration} ms.</td>
+                <td>${c.duration} ns.</td>
                 </tr>
             </j:forEach>
           </j:otherwise>

@@ -98,7 +98,7 @@ public class TestSuiteReportDetail implements ModelObject {
     final JFreeChart chart = ChartFactory.createLineChart(
         Messages.ProjectAction_RespondingTime(), // charttitle
         null, // unused
-        "ms", // range axis label
+        "ns", // range axis label
         dataset, // data
         PlotOrientation.VERTICAL, // orientation
         true, // include legend

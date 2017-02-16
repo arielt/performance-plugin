@@ -132,7 +132,7 @@ public final class PerformanceProjectAction implements Action {
     final JFreeChart chart = ChartFactory.createLineChart(
         Messages.ProjectAction_RespondingTime(), // charttitle
         null, // unused
-        "ms", // range axis label
+        "ns", // range axis label
         dataset, // data
         PlotOrientation.VERTICAL, // orientation
         true, // include legend
@@ -555,7 +555,7 @@ public final class PerformanceProjectAction implements Action {
       ChartUtil.generateGraph(
           request,
           response,
-          createSummarizerChart(dataSetBuilderSummarizer.build(), "ms",
+          createSummarizerChart(dataSetBuilderSummarizer.build(), "ns",
               Messages.ProjectAction_RespondingTime()), 400, 200);
     }
   }

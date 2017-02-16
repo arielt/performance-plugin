@@ -229,7 +229,7 @@ public class PerformanceReportMap implements ModelObject {
         request,
         response,
         PerformanceProjectAction.createSummarizerChart(
-            dataSetBuilderSummarizer.build(), "ms",
+            dataSetBuilderSummarizer.build(), "ns",
             Messages.ProjectAction_RespondingTime()), 400, 200);
   }
 
